@@ -1,0 +1,73 @@
+create database dbmachinetest
+
+
+use dbmachinetest
+create table emp
+(
+ id int primary key identity,
+ Name varchar(45),
+ Age int,
+ Qualification varchar(50),
+ Organisation varchar(55),
+ Yearofexp int,
+ GrpforFitmentatRBAI varchar(60),
+ Position varchar(65),
+ OverallRating varchar(55),
+ Location varchar(56)
+)
+
+select * from emp
+ create proc sp_emp_insert
+ @Name varchar(45),
+ @Age int,
+ @Qualification varchar(50),
+ @Organisation varchar(55),
+ @Yearofexp int,
+ @GrpforFitmentatRBAI varchar(60),
+ @Position varchar(65),
+ @OverallRating varchar(55),
+ @Location varchar(56) 
+ as
+begin
+insert into emp(Name,Age,Qualification,Organisation,Yearofexp,GrpforFitmentatRBAI,Position,OverallRating,Location)
+values(@Name,@Age,@Qualification,@Organisation,@Yearofexp,@GrpforFitmentatRBAI,@Position,@OverallRating,@Location)
+end
+
+
+create proc usp_emp_get
+ as
+begin
+select*from emp
+end
+
+create table data
+(
+id int primary key identity,
+Interviewedby varchar (45),
+IndentNo int,
+HeadcounType varchar (55),
+ReviewedBy varchar (56),
+ApprovedforAppointment varchar (57),
+HRBPProposal varchar (58),
+ApproverProposal varchar (59)
+)
+
+create proc usp_data_insert
+ @Interviewedby varchar(45),
+ @IndentNo int,
+ @HeadcounType varchar(50),
+ @ReviewedBy varchar(55),
+ @ApprovedforAppointment varchar (57),
+ @HRBPProposal varchar (58),
+ @ApproverProposal varchar (59)
+ as
+begin
+insert into data(Interviewedby,IndentNo,ReviewedBy,ApprovedforAppointment,HRBPProposal,ApproverProposal)
+values(@Interviewedby,@IndentNo,@ReviewedBy,@ApprovedforAppointment,@HRBPProposal,@ApproverProposal)
+end
+
+create proc usp_data_get
+ as
+begin
+select*from emp
+end
